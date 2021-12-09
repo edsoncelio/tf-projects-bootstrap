@@ -1,6 +1,10 @@
 # tf-projects-bootstrap
 Tool to help you to create new Terraform projects.
 
+
+## How to install
+> For now, it's with our friend `go build`, for the future I'll use goreleaser
+
 ## How to use
 
 1. To create a generic project with default options:
