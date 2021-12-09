@@ -16,8 +16,11 @@ var initCmd = &cobra.Command{
 	Short: "Initialize a Terraform project",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("initializing a terraform project...")
-		_ = Create("1.0.0")
-
+		getVersion, _ := cmd.Flags().GetString("tf-version")
+		err := Create(getVersion)
+		if err != nil {
+			fmt.Println(err)
+		}
 	},
 }
 
