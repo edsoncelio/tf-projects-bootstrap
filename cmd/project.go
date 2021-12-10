@@ -14,9 +14,13 @@ type Version struct {
 
 func Create(versions string, projectType string) error {
 
+	wd, err := os.Getwd()
+	if err != nil {
+		return err
+	}
 	if projectType == "generic" {
 
-		versionsFile, err := os.Create(fmt.Sprintf("%s", "versions.tf"))
+		versionsFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "versions.tf"))
 		if err != nil {
 			return err
 		}
@@ -31,7 +35,7 @@ func Create(versions string, projectType string) error {
 		}
 
 		//create empty files (main.tf outputs.tf variables.tf)
-		mainFile, err := os.Create(fmt.Sprintf("%s", "main.tf"))
+		mainFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "main.tf"))
 		if err != nil {
 			return err
 		}
@@ -40,7 +44,7 @@ func Create(versions string, projectType string) error {
 
 		defer mainFile.Close()
 
-		variableFile, err := os.Create(fmt.Sprintf("%s", "variables.tf"))
+		variableFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "variables.tf"))
 		if err != nil {
 			return err
 		}
@@ -54,7 +58,7 @@ func Create(versions string, projectType string) error {
 			return err
 		}
 
-		outputFile, err := os.Create(fmt.Sprintf("%s", "outputs.tf"))
+		outputFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "outputs.tf"))
 		if err != nil {
 			return err
 		}
@@ -69,7 +73,7 @@ func Create(versions string, projectType string) error {
 			return err
 		}
 
-		backendFile, err := os.Create(fmt.Sprintf("%s", "backend.tf"))
+		backendFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "backend.tf"))
 		if err != nil {
 			return err
 		}
@@ -86,7 +90,7 @@ func Create(versions string, projectType string) error {
 
 	} else {
 
-		versionsFile, err := os.Create(fmt.Sprintf("%s", "versions.tf"))
+		versionsFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "versions.tf"))
 		if err != nil {
 			return err
 		}
@@ -101,7 +105,7 @@ func Create(versions string, projectType string) error {
 		}
 
 		//create empty files (main.tf outputs.tf variables.tf backend.tf)
-		mainFile, err := os.Create(fmt.Sprintf("%s", "main.tf"))
+		mainFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "main.tf"))
 		if err != nil {
 			return err
 		}
@@ -110,7 +114,7 @@ func Create(versions string, projectType string) error {
 
 		defer mainFile.Close()
 
-		variableFile, err := os.Create(fmt.Sprintf("%s", "variables.tf"))
+		variableFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "variables.tf"))
 		if err != nil {
 			return err
 		}
@@ -124,7 +128,7 @@ func Create(versions string, projectType string) error {
 			return err
 		}
 
-		outputFile, err := os.Create(fmt.Sprintf("%s", "outputs.tf"))
+		outputFile, err := os.Create(fmt.Sprintf("%s/%s", wd, "outputs.tf"))
 		if err != nil {
 			return err
 		}
@@ -139,7 +143,7 @@ func Create(versions string, projectType string) error {
 			return err
 		}
 
-		editorCfgFile, err := os.Create(fmt.Sprintf("%s", ".editorconfig"))
+		editorCfgFile, err := os.Create(fmt.Sprintf("%s/%s", wd, ".editorconfig"))
 		if err != nil {
 			return err
 		}
