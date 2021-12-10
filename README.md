@@ -3,8 +3,17 @@ Tool to help you to create new Terraform projects.
 
 
 ## How to install
-> For now, it's with our friend `go build`, for the future I'll use goreleaser
+> For now, it's with our friend `go build`, for the future I'll use goreleaser   
 
+Clone the project and inside the directory:
+1. Build:
+`go build`
+
+2. Give permission for execution to binary:
+`chmod +x tf-projects-boostrap`
+
+3. Execute:
+`./tf-projects-boostrap`
 ## How to use
 
 1. To create a generic project with default options:
